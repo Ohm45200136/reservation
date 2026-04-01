@@ -5,14 +5,14 @@ function checkNID() {
 	return pattern.test(nid);
   }
 
-function checkTicketNo() {
-  let num = (document.getElementById("ticknum").value).trim();
-  if (isNaN(num)) {
-    return false;
-  } else {
-	return true;
+  function checkTicketNo() {
+	let num = document.getElementById("ticknum").value.trim();
+  
+	if (isNaN(num)) return false;
+  
+	num = parseInt(num);
+	return num >= 1 && num <= 5;
   }
-}
 
 function validateForm(){
 	if(!checkNID()){
