@@ -24,19 +24,26 @@ function checkNID() {
   }
 
 function validateForm(){
-	if(!checkNID()){
-	  alert("Invalid value for National ID!");
-	  document.getElementById("nid").focus();
-	  return false;
-	}else{
-		if(!checkTicketNo()){
-		  alert("Invalid value for No.of tickets!!");
-		  document.getElementById("ticknum").focus();
-		  return false;
-		}else{
-			total = priceCalculate();
-			alert("Total price for this booking is "+total+" USD");
-			return false;
-		}
-	}
+
+  if(!checkRequired()){
+    alert("Please fill all required fields!");
+    return false;
+  }
+
+  if(!checkNID()){
+    alert("National ID must be 13 digits!");
+    document.getElementById("nid").focus();
+    return false;
+  }
+
+  if(!checkTicketNo()){
+    alert("Number of tickets must be between 1 and 5!");
+    document.getElementById("ticknum").focus();
+    return false;
+  }
+
+  let total = priceCalculate();
+  alert("Total price for this booking is " + total + " USD");
+
+  return false; // กัน form submit
 }
