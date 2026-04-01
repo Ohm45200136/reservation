@@ -14,6 +14,15 @@ function checkNID() {
 	return num >= 1 && num <= 5;
   }
 
+  function checkRequired() {
+	let nid = document.getElementById("nid").value.trim();
+	let fname = document.getElementById("fname").value.trim();
+	let lname = document.getElementById("lname").value.trim();
+	let tick = document.getElementById("ticknum").value.trim();
+  
+	return nid && fname && lname && tick;
+  }
+
 function validateForm(){
 	if(!checkNID()){
 	  alert("Invalid value for National ID!");
